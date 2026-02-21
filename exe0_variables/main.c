@@ -1,15 +1,21 @@
-#include "stdio.h"
+#include <stdio.h>
 
-int a = 0; // var global
-int b = 0; // var global
 
-void foo(void) {
-    a = a + 1; // acessa variavel global
+void foo(int *pa) {
+    *pa = *pa + 1; // acessa variavel global
 }
 
 void main(void) {
+    int a = 0; 
+    int b = 0;
+    int *pa;
+    int *pb;
+    
+    pa = &a;
+    pb =  &b;
+
     while (1) {
-        foo();
+        foo(pa);
         
         if (a > 5) {
             b = 1;
