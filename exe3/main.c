@@ -30,16 +30,15 @@ int main() {
     if (!gpio_get(BNT_G)){
       i_LED_G = !i_LED_G; 
       gpio_put(LED_G, i_LED_G);
-      printf("mudando!");
+
       while (!gpio_get(BNT_G)){
       };
-      
+
     }
 
     if (!gpio_get(BNT_R)){
       i_LED_R = !i_LED_R; 
       gpio_put(LED_R, i_LED_R);
-      printf("mudando!");
       sleep_ms(200);
       
     }
