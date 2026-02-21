@@ -18,7 +18,7 @@ void main(void) {
         foo(pa);
         
         if (a > 5) {
-            b = 1;
+            *pb = 1;
         }
     }
 }
