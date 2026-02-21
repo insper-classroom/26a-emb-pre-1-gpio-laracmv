@@ -13,6 +13,7 @@ void main(void) {
         
         if (a > 5) {
             int b = 1;
+            printf("b é %d", b);
 
         }
     }
