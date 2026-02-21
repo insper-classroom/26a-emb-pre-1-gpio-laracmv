@@ -1,24 +1,19 @@
 #include <stdio.h>
 
 
-void foo(int *pa) {
-    *pa = *pa + 1; // acessa variavel global
+void foo(int *a) {
+    *a = *a + 1; 
 }
 
 void main(void) {
     int a = 0; 
     int b = 0;
-    int *pa;
-    int *pb;
     
-    pa = &a;
-    pb =  &b;
-
     while (1) {
-        foo(pa);
+        foo(&a);
         
         if (a > 5) {
-            *pb = 1;
+            b = 1;
         }
     }
 }
