@@ -2,10 +2,10 @@
 #include "pico/stdlib.h"
 #include <stdio.h>
 
-const LED_R = 4;
-const LED_G = 6;
-const BNT_R = 28;
-const BNT_G = 26;
+const int LED_R = 4;
+const int LED_G = 6;
+const int BNT_R = 28;
+const int BNT_G = 26;
 
 int main() {
   int i_LED_R = 0;
