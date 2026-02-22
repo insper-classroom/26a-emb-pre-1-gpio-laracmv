@@ -18,29 +18,22 @@ int main() {
 
     int cnt_1 = 0;
     int cnt_2 = 0;
-    int last_btn = 1;
-    int last_btn_2 = 1;
 
     while (true) {
-        int btn_1 = gpio_get(BTN_PIN);
-        if (!btn_1 && last_btn) {        
-            
-            printf("Botao 1: %d\n", ++cnt_1);
-            
+        if (!gpio_get(BTN_PIN)) {
+            sleep_ms(20);                 
+            if (!gpio_get(BTN_PIN)) {     
+                printf("Botao 1: %d\n", ++cnt_1);
+                while (!gpio_get(BTN_PIN)) {} 
+            }
         }
-        last_btn = btn_1;
-        
-        
-        
-        int btn_2 = gpio_get(BTN_PIN_2);
-        if (!btn_2 && last_btn_2) {        
-            
-            printf("Botao 2: %d\n", ++cnt_2);
 
-           
+        if (!gpio_get(BTN_PIN_2)) {
+            sleep_ms(20);
+            if (!gpio_get(BTN_PIN_2)) {
+                printf("Botao 2: %d\n", ++cnt_2);
+                while (!gpio_get(BTN_PIN_2)) {}
+            }
         }
-        last_btn_2 = btn_2;
-        sleep_ms(10);
-        
     }
 }
