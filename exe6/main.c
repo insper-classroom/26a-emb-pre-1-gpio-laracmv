@@ -1,7 +1,7 @@
 #include <stdio.h>
 
-#include "hardware/gpio.h"
-#include "pico/stdlib.h"
+#include <hardware/gpio.h>
+#include <pico/stdlib.h>
 
 int FIRST_GPIO = 2;
 const int BTN_PIN_G = 28;
@@ -60,7 +60,7 @@ int main() {
                 cnt = 0;
             }
             seven_seg_display();
-            printf("cnt: %l\n", cnt);
+            printf("cnt: %d\n", cnt);
         }
         last_btn = btn;
         sleep_ms(10); // Polling interval
