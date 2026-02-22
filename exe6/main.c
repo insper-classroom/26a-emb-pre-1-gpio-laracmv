@@ -40,8 +40,8 @@ void seven_seg_display(int *cnt) {
 
 int main() {
     // int BUTTON_GPIO;
-    int cnt;
-    int last_btn; // Button not pressed (pulled up)
+    int cnt = 0;
+    int last_btn = 1; // Button not pressed (pulled up)
 
     stdio_init_all();
     
