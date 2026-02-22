@@ -29,6 +29,8 @@ int main() {
             
         }
         last_btn = btn_1;
+        sleep_ms(10);
+        
         
         int btn_2 = gpio_get(BTN_PIN_2);
         if (!btn_2 && last_btn_2) {        
