@@ -26,7 +26,7 @@ int main() {
         if (!btn_1 && last_btn) {        
             cnt_1++;
             printf("Botao 1: %d\n", cnt_1);
-            while (!btn_1){
+            while (!gpio_get(BTN_PIN)){
                 
             };
             return 0;
@@ -38,7 +38,7 @@ int main() {
         if (!btn_2 && last_btn_2) {        
             cnt_2++;
             printf("Botao 2: %d\n", cnt_2);
-            while (!btn_2){
+            while (!!gpio_get(BTN_PIN_2)){
                 
             };
             return 0;
