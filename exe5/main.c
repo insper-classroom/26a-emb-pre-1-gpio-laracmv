@@ -15,17 +15,27 @@ int main() {
     gpio_init(BTN_PIN_2);
     gpio_set_dir(BTN_PIN_2, GPIO_IN);
     gpio_pull_up(BTN_PIN_2);
+
     int cnt_1 = 0;
     int cnt_2 = 0;
+    int last_btn = 1;
+    int last_btn_2 = 1;
 
     while (true) {
-
-        if (!gpio_get(BTN_PIN)) {
-            printf("Botao 1: %d\n", cnt_1++);
+        int btn_1 = gpio_get(BTN_PIN);
+        if (!btn_1 && last_btn) {        
+            cnt_1++;
+            printf("Botao 1: %d\n", cnt_1);
+            sleep_ms(200);
         }
-
-        if (!gpio_get(BTN_PIN_2)) {
-            printf("Botao 2: %d\n", cnt_2++);
+        last_btn = btn_1;
+        
+        int btn_2 = gpio_get(BTN_PIN_2);
+        if (!btn_2 && last_btn_2) {        
+            cnt_2++;
+            printf("Botao 2: %d\n", cnt_2);
+            sleep_ms(200);
         }
+        last_btn_2 = btn_2;
     }
 }
