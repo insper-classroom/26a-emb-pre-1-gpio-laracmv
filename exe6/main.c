@@ -29,8 +29,8 @@ void seven_seg_init() {
     }
 }
 
-void seven_seg_display(int *cnt) {
-    int value = bits[*cnt];
+void seven_seg_display(int cnt) {
+    int value = bits[cnt];
     for (int i = 0; i < 7; i++) {
         int gpio = FIRST_GPIO + i;
         int bit = (value >> i) & 1;
@@ -53,7 +53,7 @@ int main() {
     gpio_pull_up(BTN_PIN_G);
 
     seven_seg_init();
-    seven_seg_display(&cnt);
+    seven_seg_display(cnt);
 
     while (true) {
         int btn = gpio_get(BTN_PIN_G);
@@ -61,7 +61,7 @@ int main() {
             if (++cnt > 9) {
                 cnt = 0;
             }
-            seven_seg_display(&cnt);
+            seven_seg_display(cnt);
             printf("cnt: %d\n", cnt);
         }
         last_btn = btn;
